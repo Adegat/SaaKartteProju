@@ -58,7 +58,7 @@ $(function() {
             data.geonames.forEach(handleArticle);
         }
 */
-    function continentInfo(countryName) {
+    function continentInfo() {
         console.log("countryInfo")
         $.ajax({
             'url': 'http://api.geonames.org/countryInfo?username=Dega',
@@ -144,37 +144,33 @@ var countKnow =[];
                     ", " +theatresObject.countryName+'</option>');
         });
     }
+
       function addCountryKnowledgeToDiv(country) {
-          console.log("aaaaa");
           $('#Knowledge').empty();
+          var Count = country.split(", ")[0];
           countKnow.filter(function(move){
-              console.log(country);
-              console.log("filter");
               var Cont = move.countryCode.split(", ")[0];
-              console.log(Cont);
-              console.log(Cont.indexOf(country) != -1);
-              return Cont.indexOf(country) != -1;
+              return Cont.indexOf(Count) != -1;
           }).forEach(function addCountryToMenu(theatresObject) {
-              console.log("for")
               $('#Knowledge').append(
-                  '<div>'+"Country Code: "+theatresObject.countryCode+
-                  "<br>" +"Country Name: "+theatresObject.countryName+
-                  "<br>" +"isoNumeric: "+theatresObject.isoNumeric+
-                  "<br>" +"isoAlpha3 "+theatresObject.isoAlpha3+
-                  "<br>" +"fipsCode: "+theatresObject.fipsCode+
-                  "<br>" +"Continent: "+theatresObject.continent+
-                  "<br>" +"Continent Name: "+theatresObject.continentName+
-                  "<br>" +"Capital: "+theatresObject.capital+
-                  "<br>" +"Area In SqKm: "+theatresObject.areaInSqKm+
-                  "<br>" +"Population: "+theatresObject.population+
-                  "<br>" +"Currency Code: "+theatresObject.currencyCode+
-                  "<br>" +"Languages: "+theatresObject.languages+
-                  "<br>" +"Geoname Id: "+theatresObject.geonameId+
-                  "<br>" +"West: "+theatresObject.west+
-                  "<br>" +"North: "+theatresObject.north+
-                  "<br>" +"East: "+theatresObject.east+
-                  "<br>" +"South: "+theatresObject.south+
-                  "<br>" +"Postal Code Format: "+theatresObject.postalCodeFormat+'</div>');
+                  '<div>'+"  Country Code: "+theatresObject.countryCode+
+                  "<br>" +"  Country Name: "+theatresObject.countryName+
+                  "<br>" +"  isoNumeric: "+theatresObject.isoNumeric+
+                  "<br>" +"  isoAlpha3 "+theatresObject.isoAlpha3+
+                  "<br>" +"  fipsCode: "+theatresObject.fipsCode+
+                  "<br>" +"  Continent: "+theatresObject.continent+
+                  "<br>" +"  Continent Name: "+theatresObject.continentName+
+                  "<br>" +"  Capital: "+theatresObject.capital+
+                  "<br>" +"  Area In SqKm: "+theatresObject.areaInSqKm+
+                  "<br>" +"  Population: "+theatresObject.population+
+                  "<br>" +"  Currency Code: "+theatresObject.currencyCode+
+                  "<br>" +"  Languages: "+theatresObject.languages+
+                  "<br>" +"  Geoname Id: "+theatresObject.geonameId+
+                  "<br>" +"  West: "+theatresObject.west+
+                  "<br>" +"  North: "+theatresObject.north+
+                  "<br>" +"  East: "+theatresObject.east+
+                  "<br>" +"  South: "+theatresObject.south+
+                  "<br>" +"  Postal Code Format: "+theatresObject.postalCodeFormat+'</div>');
               console.log('Knowledge loaded');
           });
 
